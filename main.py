@@ -22,7 +22,7 @@ if not os.path.isfile("posts_replied_to.txt"):
 
 def docomment():
     print("\n🚀 Bot started - Commenting & upvoting posts")
-    print("Be sure to start the repository!")
+    print("Be sure to star the repository!")
 
     # ✅ Load random comments safely
     try:
