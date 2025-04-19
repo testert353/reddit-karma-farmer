@@ -8,14 +8,7 @@ import time
 
 sendSlackAlerts = False
 
-# ✅ Initialize the bot with explicit user-agent
-mybot = praw.Reddit(
-    client_id="Xgkd_JU917GHwPhF7319_g",
-    client_secret="gOyfDduZVS4U-2C9zMvwKJqsRfl0qw",
-    password="CatCool123!",
-    username="B0PD",
-    user_agent="Epic Bot"
-)
+mybot = praw.ini
 
 # ✅ Ensure Reddit connection works before proceeding
 try:
