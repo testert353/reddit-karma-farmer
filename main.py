@@ -1,18 +1,15 @@
-from keep_alive import keep_alive
-import slack
-from datetime import datetime
-import random
-import os
 import praw
 import time
+import random
+import os
+from datetime import datetime
 
-sendSlackAlerts = False
-
-mybot = praw.ini
+# ✅ Initialize the bot with explicit user-agent
+mybot = praw.Reddit("bot1")  # Uses credentials from praw.ini
 
 # ✅ Ensure Reddit connection works before proceeding
 try:
-    subreddit = mybot.subreddit("pics")  # Use a real subreddit
+    subreddit = mybot.subreddit("pics")  # Change to target subreddit
     print("✅ Successfully connected to Reddit!")
 except Exception as e:
     print(f"❌ Reddit connection failed: {e}")
@@ -32,7 +29,6 @@ def docomment():
         print(f"❌ Failed to load random posts: {e}")
         return
 
-    # ✅ Start processing posts
     for submission in subreddit.stream.submissions():
         done = open("posts_replied_to.txt", 'r', encoding="utf-8").read().split(',')
 
@@ -91,13 +87,7 @@ def go():
             with open("logs.txt", 'a', encoding="utf-8") as file:
                 file.write(f"\n{date}\n{error}")
 
-            if sendSlackAlerts:
-                slacktoken = open("slacktoken.txt").read()
-                client = slack.WebClient(token=slacktoken)
-                client.chat_postMessage(channel='alerts', text=f"🚨 Error occurred:\n{error}")
-
             print("🔄 Restarting bot after error...")
             time.sleep(5)
 
-keep_alive()
 go()
