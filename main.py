@@ -13,6 +13,7 @@ try:
     print("✅ Successfully connected to Reddit!")
 except Exception as e:
     print(f"❌ Reddit connection failed: {e}")
+    print("Please screenshot this & DM NotDefender on Discord.")
     exit()
 
 # ✅ Ensure tracking file exists
@@ -21,6 +22,7 @@ if not os.path.isfile("posts_replied_to.txt"):
 
 def docomment():
     print("\n🚀 Bot started - Commenting & upvoting posts")
+    print("Be sure to start the repository!")
 
     # ✅ Load random comments safely
     try:
@@ -37,7 +39,7 @@ def docomment():
             randompost = randomposts[rand]
 
             post_url = f"https://www.reddit.com/r/{submission.subreddit}/comments/{submission.id}"
-            print(f"\n⚡️ New post detected: {submission.title}")
+            print(f"\n⚡️ Commented on {submission.title} in {submission.subreddit}")
             print(f"🔗 Post URL: {post_url}")
 
             # ✅ UPVOTE the post
@@ -70,6 +72,7 @@ def docomment():
                     time.sleep(wait_time * 60)
                 else:
                     print(f"❌ ERROR COMMENTING: {e}")
+                    print("Please screenshot this & DM NotDefender on Discord.")
 
 def go():
     while True:
