@@ -12,20 +12,20 @@ An automated Reddit bot that **upvotes** and **comments** on new posts in a chos
 ## ⚡ Installation
 ### 1️⃣ **Clone this Repository**
 ```sh
-git clone https://github.com/YOUR-USERNAME/reddit-karma-bot.git
+git clone https://github.com/testert353/reddit-karma-farmer.git
 cd reddit-karma-bot
 ```
 
 ### 2️⃣ **Install Dependencies**
 ```sh
-pip install praw slackclient
+pip install -r requirements.txt
 ```
 
 ### 3️⃣ **Set Up Reddit API Credentials**
 1. Visit [Reddit Apps](https://www.reddit.com/prefs/apps)
 2. Click **Create App** → Choose **Script**
 3. Note down **client ID**, **client secret**, **username**, **password**
-4. Modify `config.py`:
+4. Edit `praw.ini`:
 ```py
 CLIENT_ID = "your_client_id"
 CLIENT_SECRET = "your_client_secret"
@@ -50,7 +50,7 @@ Upvoted! Keep posting awesome content | Your post stood out—had to upvote | Ta
 1. The bot connects to Reddit using PRAW.
 2. It streams new posts from a **target subreddit**.
 3. For each post:
-   - ✅ **Upvotes the post**  
+   - ✅ **Upvotes the post** so the comment will be more believable.
    - ✅ **Posts a random comment** from `randomposts.txt`
    - ✅ **Logs the post ID** to prevent duplicate interactions
 4. If **rate-limited**, it waits until Reddit allows more actions.
@@ -80,7 +80,7 @@ except praw.exceptions.APIException as e:
 - [ ] Create a **web-based dashboard** for bot stats  
 
 ## 💡 Credits & License
-- Created by **[Your Name]**
+- Created by **Wesley Jensen**
 - Powered by **Python & PRAW**
 - Open-source under **MIT License**
 
