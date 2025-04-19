@@ -80,7 +80,7 @@ except praw.exceptions.APIException as e:
 - [ ] Create a **web-based dashboard** for bot stats  
 
 ## 💡 Credits & License
-- Created by **Wesley Jensen**
+- Created by **Testert353**
 - Powered by **Python & PRAW**
 - Open-source under **MIT License**
 
